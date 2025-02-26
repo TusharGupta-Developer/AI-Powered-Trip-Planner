@@ -2,6 +2,8 @@
 
 I am currently developing **Wanderly**, an **AI-powered** and **stylish** trip planning application. My goal is to combine **React**, **Gemini AI**, **Firebase**, and **Tailwind CSS** to create a **smart travel assistant** that simplifies trip planning while enhancing my skills as a developer.  
 
+🔗 **Live Link:** [Wanderly](https://ai-powered-trip-planner.vercel.app/)
+
 ## ✨ Features  
 
 - 🤖 **AI-Powered Trip Generation** – Create personalized trips with **Gemini AI**.  
