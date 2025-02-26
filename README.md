@@ -4,6 +4,11 @@ I am currently developing **Wanderly**, an **AI-powered** and **stylish** trip p
 
 🔗 **Live Link:** [Wanderly](https://ai-powered-trip-planner.vercel.app/)
 
+## 🎯 Development Status  
+
+🚧 **Currently in Development** 🚧  
+I am actively working on **Wanderly** to enhance my skills in **React, AI integration, Firebase, UI/UX design, API integrations, and ShadCN/UI components** while building an intuitive travel assistant. 
+
 ## ✨ Features  
 
 - 🤖 **AI-Powered Trip Generation** – Create personalized trips with **Gemini AI**.  
@@ -25,12 +30,7 @@ I am currently developing **Wanderly**, an **AI-powered** and **stylish** trip p
 - 🎨 **Tailwind CSS & ShadCN/UI** – For a modern, accessible, and stylish design.  
 - 🔗 **React Router** – Enables efficient navigation between pages.  
 - 🔐 **Google Authentication** – Ensures secure access to user data.  
-- 📸 **Google Photos API** – Displays rich visuals for planned destinations.  
-
-## 🎯 Development Status  
-
-🚧 **Currently in Development** 🚧  
-I am actively working on **Wanderly** to enhance my skills in **React, AI integration, Firebase, UI/UX design, API integrations, and ShadCN/UI components** while building an intuitive travel assistant.  
+- 📸 **Google Photos API** – Displays rich visuals for planned destinations.   
 
 ## 📌 Future Enhancements  
 
