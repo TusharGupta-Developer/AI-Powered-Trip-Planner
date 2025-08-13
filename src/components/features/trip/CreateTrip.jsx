@@ -27,7 +27,7 @@ function CreateTrip() {
   }, [formData])
 
   const OnGenerateTrip = () => {
-    if (formData?.noOfDays > 5 && !formData?.location || !formData?.budget || !formData?.traveler) {
+    if (formData?.noOfDays > 5 || !formData?.location || !formData?.budget || !formData?.traveler) {
       toast("Please fill all details")
     }
     console.log(formData)// if condition noOfDays<5 then i able to console the formdata. 
