@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { SelectBudgetOptions, SelectTravelsLists } from '@/constants/options';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
+import { AI_PROMPT, generateWithGemini } from '@/service/AIModal';
 
 
 function CreateTrip() {
@@ -26,11 +27,27 @@ function CreateTrip() {
     console.log(formData)
   }, [formData])
 
-  const OnGenerateTrip = () => {
+  const OnGenerateTrip = async () => {
     if (formData?.noOfDays > 5 || !formData?.location || !formData?.budget || !formData?.traveler) {
       toast("Please fill all details")
     }
-    console.log(formData)// if condition noOfDays<5 then i able to console the formdata. 
+    else {
+      const FINAL_PROMPT = AI_PROMPT
+        .replace('{location}', formData?.location?.label)
+        .replace('{totalDays}', formData?.noOfDays)
+        .replace('{traveler}', formData?.traveler)
+        .replace('{budget}', formData?.budget)
+        .replace('{totalDays}', formData?.noOfDays)
+
+      console.log(FINAL_PROMPT)
+
+      // Pass FINAL_PROMPT to Gemini
+      console.log("Prompt being sent:", FINAL_PROMPT);
+
+      const result = await generateWithGemini(FINAL_PROMPT);
+      console.log("AI Result:", result?.response?.text);
+
+    }
   }
 
   return (
