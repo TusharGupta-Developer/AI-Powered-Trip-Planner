@@ -5,11 +5,24 @@ import { SelectBudgetOptions, SelectTravelsLists } from '@/constants/options';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 import { AI_PROMPT, generateWithGemini } from '@/service/AIModal';
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { FcGoogle } from "react-icons/fc";
+import { useGoogleLogin } from '@react-oauth/google';
+import axios from 'axios';
+
 
 
 function CreateTrip() {
   const [place, setPlace] = useState();
   const [formData, setFormData] = useState([]);
+  const [openDialog, setOpenDialog] = useState(false);
 
   const handleInputChange = (name, value) => {
 
@@ -27,8 +40,41 @@ function CreateTrip() {
     console.log(formData)
   }, [formData])
 
+  const login = useGoogleLogin({
+    // onSuccess: codeResponse => console.log(codeResponse),
+    onSuccess: codeResponse => GetUserDetails(codeResponse),
+    onError: codeResponse => console.log(codeResponse)
+  });
+
+  const GetUserDetails = (tokenInfo) => {
+    console.log("Token info received:", tokenInfo);
+
+    axios.get(`https://www.googleapis.com/oauth2/v3/userinfo?`, { // v3 endpoint is recommended
+      headers: {
+        Authorization: `Bearer ${tokenInfo?.access_token}`,
+        Accept: 'application/json'
+      }
+    })
+      .then((resp) => {
+        console.log("Google user profile:", resp.data);
+        localStorage.setItem('user',JSON.stringify(resp.data))
+        setOpenDialog(false)
+        OnGenerateTrip()
+      })
+      .catch((error) => {
+        console.error("Error fetching profile:", error.response?.data || error.message);
+      });
+  };
+
   const OnGenerateTrip = async () => {
-    if (formData?.noOfDays > 5 || !formData?.location || !formData?.budget || !formData?.traveler) {
+
+    const user = localStorage.getItem('user')
+    if (!user) {
+      setOpenDialog(true)
+      return;
+    }
+
+    else if (formData?.noOfDays > 5 || !formData?.location || !formData?.budget || !formData?.traveler) {
       toast("Please fill all details")
     }
     else {
@@ -46,7 +92,6 @@ function CreateTrip() {
 
       const result = await generateWithGemini(FINAL_PROMPT);
       console.log("AI Result:", result?.response?.text);
-
     }
   }
 
@@ -112,6 +157,29 @@ function CreateTrip() {
       <div className='my-10 flex justify-end'>
         <Button onClick={OnGenerateTrip}>Generate Trip</Button>
       </div>
+
+      <Dialog open={openDialog}>
+        {/* <DialogTrigger>Open</DialogTrigger> */}
+        <DialogContent>
+          <DialogHeader>
+            <DialogDescription>
+
+              <div className='flex justify-center items-center flex-col mt-7'>
+                <img className="mx-auto" src="/logo.svg" alt="" />
+                <h2 className='font-bold text-lg mt-7'>Sign In With Google </h2>
+                <p >Sign In to the App with Google authentication securily.</p>
+
+                <Button
+                  onClick={login}
+                  className="w-full mt-5" >
+                  <FcGoogle className='h-7 w-7' />
+                  Sign In With Google</Button>
+              </div>
+
+            </DialogDescription>
+          </DialogHeader>
+        </DialogContent>
+      </Dialog>
 
     </div>
   )
