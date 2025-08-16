@@ -49,15 +49,15 @@ function CreateTrip() {
   const GetUserDetails = (tokenInfo) => {
     console.log("Token info received:", tokenInfo);
 
-    axios.get(`https://www.googleapis.com/oauth2/v3/userinfo?`, { // v3 endpoint is recommended
+    axios.get(`https://www.googleapis.com/oauth2/v3/userinfo?`, { // This URL is Google’s OAuth v3 userinfo endpoint. When you pass an access token in the request, Google returns the authenticated user's profile information (name, email, picture, etc.).
       headers: {
-        Authorization: `Bearer ${tokenInfo?.access_token}`,
-        Accept: 'application/json'
+        Authorization: `Bearer ${tokenInfo?.access_token}`, //Authorization → Uses the OAuth Bearer token to prove the user is authenticated.
+        Accept: 'application/json'//Accept → Tells Google you want the response in JSON format.
       }
     })
       .then((resp) => {
         console.log("Google user profile:", resp.data);
-        localStorage.setItem('user',JSON.stringify(resp.data))
+        localStorage.setItem('user', JSON.stringify(resp.data)) //JSON.stringify converts object to JSON string
         setOpenDialog(false)
         OnGenerateTrip()
       })
