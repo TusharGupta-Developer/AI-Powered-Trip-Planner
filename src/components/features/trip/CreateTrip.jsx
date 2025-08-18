@@ -16,6 +16,9 @@ import {
 import { FcGoogle } from "react-icons/fc";
 import { useGoogleLogin } from '@react-oauth/google';
 import axios from 'axios';
+import { doc, setDoc } from "firebase/firestore";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
+import { db, } from '@/service/firebaseConfig';
 
 
 
@@ -23,6 +26,7 @@ function CreateTrip() {
   const [place, setPlace] = useState();
   const [formData, setFormData] = useState([]);
   const [openDialog, setOpenDialog] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (name, value) => {
 
@@ -74,25 +78,44 @@ function CreateTrip() {
       return;
     }
 
-    else if (formData?.noOfDays > 5 || !formData?.location || !formData?.budget || !formData?.traveler) {
+    if (formData?.noOfDays > 5 || !formData?.location || !formData?.budget || !formData?.traveler) {
       toast("Please fill all details")
     }
-    else {
-      const FINAL_PROMPT = AI_PROMPT
-        .replace('{location}', formData?.location?.label)
-        .replace('{totalDays}', formData?.noOfDays)
-        .replace('{traveler}', formData?.traveler)
-        .replace('{budget}', formData?.budget)
-        .replace('{totalDays}', formData?.noOfDays)
 
-      console.log(FINAL_PROMPT)
+    setLoading(true);
+    const FINAL_PROMPT = AI_PROMPT
+      .replace('{location}', formData?.location?.label)
+      .replace('{totalDays}', formData?.noOfDays)
+      .replace('{traveler}', formData?.traveler)
+      .replace('{budget}', formData?.budget)
+      .replace('{totalDays}', formData?.noOfDays)
 
-      // Pass FINAL_PROMPT to Gemini
-      console.log("Prompt being sent:", FINAL_PROMPT);
+    // Pass FINAL_PROMPT to Gemini
+    console.log("Prompt being sent:", FINAL_PROMPT);
 
-      const result = await generateWithGemini(FINAL_PROMPT);
-      console.log("AI Result:", result?.response?.text);
-    }
+    const result = await generateWithGemini(FINAL_PROMPT);
+    console.log("AI Result:", result?.response?.text);
+    setLoading(false)
+    SaveAITrip(result?.response?.text)
+  }
+
+  const SaveAITrip = async (TripData) => {
+
+    setLoading(true)
+    const docID = Date.now().toString();
+    const user = JSON.parse(localStorage.getItem('user'));
+
+    //AI responses (like from Gemini/OpenAI) often return JSON wrapped in Markdown code blocks, so you need to clean them first before parsing.
+    let cleanedTripData = TripData.replace(/```json|```/g, "").trim(); //  // trim() removes any extra space or empty lines.
+    const tripData = JSON.parse(cleanedTripData);
+
+    await setDoc(doc(db, "AITrips", docID), {
+      userSelection: formData,
+      tripData: (tripData),
+      userEmail: user?.email,
+      Id: docID,
+    });
+    setLoading(false)
   }
 
   return (
