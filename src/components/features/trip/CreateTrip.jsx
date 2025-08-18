@@ -19,6 +19,7 @@ import axios from 'axios';
 import { doc, setDoc } from "firebase/firestore";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { db, } from '@/service/firebaseConfig';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -28,6 +29,7 @@ function CreateTrip() {
   const [openDialog, setOpenDialog] = useState(false);
   const [loading, setLoading] = useState(false);
 
+  const navigate = useNavigate();
   const handleInputChange = (name, value) => {
 
     // if (name == 'noOfDays' && value > 5) {
@@ -94,6 +96,7 @@ function CreateTrip() {
     console.log("Prompt being sent:", FINAL_PROMPT);
 
     const result = await generateWithGemini(FINAL_PROMPT);
+    console.log(result)
     console.log("AI Result:", result?.response?.text);
     setLoading(false)
     SaveAITrip(result?.response?.text)
@@ -105,7 +108,7 @@ function CreateTrip() {
     const docID = Date.now().toString();
     const user = JSON.parse(localStorage.getItem('user'));
 
-    //AI responses (like from Gemini/OpenAI) often return JSON wrapped in Markdown code blocks, so you need to clean them first before parsing.
+    // AI responses (like from Gemini/OpenAI) often return JSON wrapped in Markdown code blocks, so you need to clean them first before parsing.
     let cleanedTripData = TripData.replace(/```json|```/g, "").trim(); //  // trim() removes any extra space or empty lines.
     const tripData = JSON.parse(cleanedTripData);
 
@@ -116,6 +119,8 @@ function CreateTrip() {
       Id: docID,
     });
     setLoading(false)
+    navigate('view-trip/'+docID)
+
   }
 
   return (

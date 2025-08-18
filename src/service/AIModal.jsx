@@ -77,7 +77,7 @@ export async function generateWithGemini(prompt) {
   let fullText = '';
   for await (const chunk of stream) {
     fullText += chunk.text;
-  }
+}
 
   // Return in the exact shape the second snippet expects
   return { response: { text: fullText } };
