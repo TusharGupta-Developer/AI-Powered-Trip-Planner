@@ -9,8 +9,8 @@ function HotelSection({ trip }) {
             <h2 className=' font-bold text-xl mt-5'>Hotel Recommendation </h2>
             <div className='grid grid-cols-2 md:grid-cols-3 xl:grid-cols-3 gap-5 mt-3'>
                 {trip?.tripData?.hotelOptions?.map((hotel, index) => (
-            
-                        // {console.log(item)}
+                    <Link to={'https://www.google.com/maps/search/?api=1&query=' +hotel?.hotelName+","+ hotel?.hotelAddress} target='_blank' className="no-underline text-inherit hover:no-underline hover:text-inherit">
+                        {/* // {console.log(item)} */}
                         <div className='hover:scale-105 transition-all cursor-pointer'>
                             <img src={hotel?.hotelImageUrl} alt="" className='rounded-xl' />
 
@@ -21,7 +21,7 @@ function HotelSection({ trip }) {
                                 <h2 className='text-sm'>⭐{hotel?.rating}</h2>
                             </div>
                         </div>
-                    
+                    </Link>
                 ))}
             </div>
 
