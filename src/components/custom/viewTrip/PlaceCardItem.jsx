@@ -39,7 +39,14 @@ function PlaceCardItem({ place }) {
     return (
         <Link to={'https://www.google.com/maps/search/?api=1&query=' + place?.placeName} target='_blank' className="no-underline text-inherit hover:no-underline hover:text-inherit">
             <div className='border rounded-xl p-5 mt-2 flex gap-5 hover:scale-105 transition-all hover:shadow-md cursor-pointer'>
-                <img src={photo} alt="" className="min-w-[250px] min-h-[200px] rounded-xl" />
+                <div className="w-[700px] h-[200px] rounded-xl overflow-hidden">
+                    <img
+                        src={photo}
+                        alt=""
+                        className="w-full h-full object-cover"
+                    />
+                </div>
+
                 <div>
                     <h2 className='font-bold text-lg'>{place?.placeName}</h2>
                     <h2 className='text-sm text-gray-400'>{place?.placeDetails}</h2>
