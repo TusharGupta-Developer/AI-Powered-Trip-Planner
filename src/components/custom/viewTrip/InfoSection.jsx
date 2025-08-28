@@ -1,14 +1,46 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button';
 import { IoIosSend } from "react-icons/io";
+import { GetPlaceDetail } from '@/service/GlobalApi';
+
+
+const PHOTP_REF_URL = `https://places.googleapis.com/v1/{NAME}/media?maxHeightPx=1000&maxWidthPx=1000&key=` + import.meta.env.VITE_GOOGLE_PLACE_API_KEY
 
 function InfoSection({ trip }) {
+
+    const [photo, setPhoto] = useState()
     // console.log(trip)
+
+    useEffect(() => {
+        if (trip?.userSelection?.location?.label) { // Self: If used here because when page is load then instantly GetPlacePhoto(); is called but at that time data have no value as trip?.userSelection?.location?.label not run that time so "error", To fix this problem I used if condfiyion that only runs GetPlacePhoto(); when trip?.userSelection?.location?.label have value.
+            GetPlacePhoto();
+        }
+    }, [trip]);
+
+    const data = {
+
+        textQuery: trip?.userSelection?.location?.label
+    };
+
+    const GetPlacePhoto = async () => {
+        try {
+            const resp = await GetPlaceDetail(data);
+            console.log(resp.data);
+            console.log(resp.data.places[0].photos[3]);
+            console.log(resp.data.places[0].photos[3].name);
+            const PhotoUrl = PHOTP_REF_URL.replace('{NAME}', resp.data.places[0].photos[3].name)
+            // console.log(PhotoUrl)
+            setPhoto(PhotoUrl)
+
+        } catch (err) {
+            console.error("Google Places API Error:", err.response?.data || err.message);
+        }
+    };
 
 
     return (
         <div>
-            <img src="/placeholder.jpg" alt="" className='h-[300px] w-full object-cover rounded-xl' />
+            <img src={photo} alt="" className='h-[300px] w-full object-cover rounded-xl' />
 
             <div className='flex justify-between items-center'>
                 <div className='my-5 flex flex-col'>
