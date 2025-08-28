@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Button } from '@/components/ui/button';
 import { IoIosSend } from "react-icons/io";
-import { GetPlaceDetail } from '@/service/GlobalApi';
+import { GetPlaceDetail, PHOTP_REF_URL } from '@/service/GlobalApi';
 
-
-const PHOTP_REF_URL = `https://places.googleapis.com/v1/{NAME}/media?maxHeightPx=1000&maxWidthPx=1000&key=` + import.meta.env.VITE_GOOGLE_PLACE_API_KEY
 
 function InfoSection({ trip }) {
 

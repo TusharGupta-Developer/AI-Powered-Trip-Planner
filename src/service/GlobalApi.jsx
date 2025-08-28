@@ -11,3 +11,5 @@ const config = {
 }
 
 export const GetPlaceDetail = (data) => axios.post(base_url, data, config)
+
+export const PHOTP_REF_URL = `https://places.googleapis.com/v1/{NAME}/media?maxHeightPx=1000&maxWidthPx=1000&key=` + import.meta.env.VITE_GOOGLE_PLACE_API_KEY
