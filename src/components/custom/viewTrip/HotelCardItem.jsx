@@ -37,7 +37,7 @@ function HotelCardItem({hotel, index}) {
         <Link key={index} to={'https://www.google.com/maps/search/?api=1&query=' + hotel?.hotelName + "," + hotel?.hotelAddress} target='_blank' className="no-underline text-inherit hover:no-underline hover:text-inherit">
             {/* // {console.log(item)} */}
             <div key={index} className='hover:scale-105 transition-all cursor-pointer'>
-                <img src={photo} alt="" className='rounded-xl w-[250px] h-[200px]'/>
+                <img src={photo?photo:'/plcaeholder.jpg'} alt="" className='rounded-xl w-[250px] h-[200px]'/>
 
                 <div className='my-2'>
                     <h2 className='font-medium'>{hotel?.hotelName}</h2>

@@ -41,7 +41,7 @@ function PlaceCardItem({ place }) {
             <div className='border rounded-xl p-5 mt-2 flex gap-5 hover:scale-105 transition-all hover:shadow-md cursor-pointer'>
                 <div className="w-[700px] h-[200px] rounded-xl overflow-hidden">
                     <img
-                        src={photo}
+                        src={photo?photo:'/plcaeholder.jpg'}
                         alt=""
                         className="w-full h-full object-cover"
                     />
