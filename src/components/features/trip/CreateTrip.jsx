@@ -79,12 +79,12 @@ function CreateTrip() {
       setOpenDialog(true)
       return;
     }
-
+    setLoading(false)
     if (formData?.noOfDays > 5 || !formData?.location || !formData?.budget || !formData?.traveler) {
       toast("Please fill all details")
     }
 
-    setLoading(true);
+    // setLoading(true);
     const FINAL_PROMPT = AI_PROMPT
       .replace('{location}', formData?.location?.label)
       .replace('{totalDays}', formData?.noOfDays)
@@ -184,7 +184,7 @@ function CreateTrip() {
 
       <div className='my-10 flex justify-end'>
         <Button
-          disabled={loading}
+          disabled={loading} //When loading = true, the button is disabled (user cannot click).
           onClick={OnGenerateTrip}>
           {loading ? <AiOutlineLoading3Quarters /> : "Generate Trip"}
         </Button>
