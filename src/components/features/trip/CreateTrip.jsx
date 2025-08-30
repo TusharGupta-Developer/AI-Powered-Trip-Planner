@@ -196,19 +196,30 @@ function CreateTrip() {
           <DialogHeader>
             <DialogDescription>
 
-              <div className='flex justify-center items-center flex-col mt-7'>
-                <img className="mx-auto" src="/logo.svg" alt="" />
-                <h2 className='font-bold text-lg mt-7'>Sign In With Google </h2>
-                <p >Sign In to the App with Google authentication securily.</p>
+              <div className="flex justify-center items-center flex-col mt-10 px-6">
+                {/* Logo */}
+                <div className="p-3 bg-white shadow-lg rounded-2xl">
+                  <img className="mx-auto h-16 w-16" src="/logo.svg" alt="App Logo" />
+                </div>
 
-                <div className='my-10 flex justify-end'>
+                {/* Heading */}
+                <h2 className="font-extrabold text-2xl mt-6 text-gray-900 tracking-wide">
+                  Sign In With Google
+                </h2>
+                <p className="text-gray-500 mt-2 text-center max-w-sm leading-relaxed">
+                  Sign in to the app with <span className="font-medium text-gray-700">Google authentication</span> securely.
+                </p>
+
+                {/* Button */}
+                <div className="mt-10 w-full max-w-sm">
                   <Button
                     onClick={login}
-                    className="w-full mt-5 flex gap-4 items-center"
+                    className="group w-full py-4 rounded-xl bg-white text-gray-700 shadow-md border border-gray-200  hover:bg-black hover:text-white hover:shadow-xl transition-all duration-300 flex gap-3 justify-center items-center"
                   >
-                    <FcGoogle className='h-7 w-7' />
+                    <FcGoogle className="h-6 w-6" />
                     Sign In With Google
                   </Button>
+
                 </div>
               </div>
 
