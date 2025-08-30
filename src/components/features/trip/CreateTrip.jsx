@@ -119,7 +119,7 @@ function CreateTrip() {
       Id: docID,
     });
     setLoading(false)
-    navigate('view-trip/'+docID)
+    navigate('view-trip/' + docID)
 
   }
 
@@ -203,9 +203,11 @@ function CreateTrip() {
 
                 <div className='my-10 flex justify-end'>
                   <Button
-                    disabled={loading}
-                    onClick={OnGenerateTrip}>
-                    {loading ? <AiOutlineLoading3Quarters /> : "Generate Trip"}
+                    onClick={login}
+                    className="w-full mt-5 flex gap-4 items-center"
+                  >
+                    <FcGoogle className='h-7 w-7' />
+                    Sign In With Google
                   </Button>
                 </div>
               </div>
