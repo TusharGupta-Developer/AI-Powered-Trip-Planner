@@ -33,9 +33,9 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <App /> },  // ✅ use App instead of Home
-      { path: "create-trip", element: <CreateTrip /> },
-      { path: "create-trip/view-trip/:tripId", element: <ViewTrip /> },
-      { path: "my-trip", element: <MyTrip /> },
+      // { path: "create-trip", element: <CreateTrip /> },
+      // { path: "create-trip/view-trip/:tripId", element: <ViewTrip /> },
+      // { path: "my-trip", element: <MyTrip /> },
     ],
   },
 ]);
