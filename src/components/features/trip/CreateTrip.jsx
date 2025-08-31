@@ -82,9 +82,9 @@ function CreateTrip() {
     setLoading(false)
     if (formData?.noOfDays > 5 || !formData?.location || !formData?.budget || !formData?.traveler) {
       toast("Please fill all details")
+      setLoading(true);
     }
 
-    // setLoading(true);
     const FINAL_PROMPT = AI_PROMPT
       .replace('{location}', formData?.location?.label)
       .replace('{totalDays}', formData?.noOfDays)

@@ -77,7 +77,7 @@ function Header() {
                 <div>
                     {user ?
                         <div className='flex items-center gap-3'>
-                            <Button variant="outline" className="rounded-full">My Trip</Button>
+                            <Button variant="outline" className="rounded-full" onClick={() => navigate("my-trip")}>My Trip</Button>
 
                             <Popover>
                                 <PopoverTrigger><img src={user?.picture} className='h-[40px] w-[40px] rounded-full' alt="" /></PopoverTrigger>
