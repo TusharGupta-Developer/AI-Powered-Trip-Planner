@@ -4,10 +4,23 @@ I am currently developing **Wanderly**, an **AI-powered** and **stylish** trip p
 
 🔗 **Live Link:** [Wanderly](https://ai-powered-trip-planner.vercel.app/)
 
-## 🎯 Development Status  
 
-🚧 **Currently in Development** 🚧  
-I am actively working on **Wanderly** to enhance my skills in **React, AI integration, Firebase, UI/UX design, API integrations, and ShadCN/UI components** while building an intuitive travel assistant. 
+## 🚧 Development Status
+
+Currently, some features are **temporarily disabled** while debugging the `placePhoto` API issue.  
+- `useEffect` in `MyTripCardItem` was firing repeatedly, causing unnecessary API calls (and hitting free tier billing).  
+- To prevent unwanted charges, the following routes are commented out for now:  
+  - `/create-trip`  
+  - `/create-trip/view-trip/:tripId`  
+  - `/my-trip`
+
+✅ Next Steps:  
+- Fix the `useEffect` loop by adding proper dependency handling and API call guards.  
+- Re-enable the above routes once the API usage is optimized.  
+- Continue refining UI/UX and reducing unnecessary re-renders.  
+
+> ⚠️ Note: Until fixed, some components and routes may not be available in the live demo.
+
 
 ## ✨ Features  
 
