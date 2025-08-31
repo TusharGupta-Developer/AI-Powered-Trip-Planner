@@ -39,13 +39,13 @@ function ViewTrip() {
     <div className='p-10 md:px-10 lg:px-44 xl:px-50'>
 
       {/* Information Section */}
-      <InfoSection trip={trip} />
+      {/* <InfoSection trip={trip} /> */}
 
       {/* Recommended Hotels */}
-      <HotelSection trip={trip} />
+      {/* <HotelSection trip={trip} /> */}
 
       {/* Daily Plan */}
-      <PlacesToVisit trip={trip} />
+      {/* <PlacesToVisit trip={trip} /> */}
 
       {/* Footer */}
       <Footer />
