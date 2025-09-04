@@ -7,43 +7,53 @@ import { GetPlaceDetail, PHOTP_REF_URL } from '@/service/GlobalApi';
 
 function PlaceCardItem({ place }) {
 
-    const [photo, setPhoto] = useState()
-    console.log(place)
+    // const [photo, setPhoto] = useState()
+    // console.log(place)
 
-    useEffect(() => {
-        if (place?.placeName) { // Self: If used here because when page is load then instantly GetPlacePhoto(); is called but at that time data have no value as trip?.userSelection?.location?.label not run that time so "error", To fix this problem I used if condfiyion that only runs GetPlacePhoto(); when trip?.userSelection?.location?.label have value.
-            GetHotelPhoto();
-        }
-    }, [place]);
+    // useEffect(() => {
+    //     if (place?.placeName) { // Self: If used here because when page is load then instantly GetPlacePhoto(); is called but at that time data have no value as trip?.userSelection?.location?.label not run that time so "error", To fix this problem I used if condfiyion that only runs GetPlacePhoto(); when trip?.userSelection?.location?.label have value.
+    //         GetHotelPhoto();
+    //     }
+    // }, [place]);
 
-    const data = {
+    // const data = {
 
-        textQuery: place?.placeName
-    };
+    //     textQuery: place?.placeName
+    // };
 
-    const GetHotelPhoto = async () => {
-        try {
-            const resp = await GetPlaceDetail(data);
-            console.log(resp.data);
-            console.log(resp.data.places[0].photos[3]);
-            console.log(resp.data.places[0].photos[3].name);
-            const PhotoUrl = PHOTP_REF_URL.replace('{NAME}', resp.data.places[0].photos[3].name)
-            console.log(PhotoUrl)
-            setPhoto(PhotoUrl)
+    // const GetHotelPhoto = async () => {
+    //     try {
+    //         const resp = await GetPlaceDetail(data);
+    //         console.log(resp.data);
+    //         console.log(resp.data.places[0].photos[3]);
+    //         console.log(resp.data.places[0].photos[3].name);
+    //         const PhotoUrl = PHOTP_REF_URL.replace('{NAME}', resp.data.places[0].photos[3].name)
+    //         console.log(PhotoUrl)
+    //         setPhoto(PhotoUrl)
 
-        } catch (err) {
-            console.error("Google Places API Error:", err.response?.data || err.message);
-        }
-    };
+    //     } catch (err) {
+    //         console.error("Google Places API Error:", err.response?.data || err.message);
+    //     }
+    // };
 
     return (
         <Link to={'https://www.google.com/maps/search/?api=1&query=' + place?.placeName} target='_blank' className="no-underline text-inherit hover:no-underline hover:text-inherit">
             <div className='border rounded-xl p-5 mt-2 flex gap-5 hover:scale-105 transition-all hover:shadow-md cursor-pointer'>
                 <div className="w-[700px] h-[200px] rounded-xl overflow-hidden">
-                    <img
-                        src={photo?photo:'/plcaeholder.jpg'}
+                    {/* <img
+                        src={place?.placeImageUrl || '/placeholder.jpg'} 
                         alt=""
                         className="w-full h-full object-cover"
+                    /> */}
+
+                    <img
+                        src={place?.placeImageUrl || '/placeholder.jpg'}
+                        alt={place?.name || 'Placeholder'}
+                        className="rounded-xl w-[250px] h-[200px] object-cover"
+                        onError={(e) => {
+                            e.onerror = null; // prevent infinite loop
+                            e.target.src = '/placeholder.jpg';
+                        }}
                     />
                 </div>
 

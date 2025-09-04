@@ -86,7 +86,8 @@ function CreateTrip() {
     }
 
     const FINAL_PROMPT = AI_PROMPT
-      .replace('{location}', formData?.location?.label)
+      // .replace('{location}', formData?.location?.label)
+      .replace('{location}', formData?.location)
       .replace('{totalDays}', formData?.noOfDays)
       .replace('{traveler}', formData?.traveler)
       .replace('{budget}', formData?.budget)
@@ -102,26 +103,62 @@ function CreateTrip() {
     SaveAITrip(result?.response?.text)
   }
 
-  const SaveAITrip = async (TripData) => {
+  // const SaveAITrip = async (TripData) => {
 
-    setLoading(true)
+  //   setLoading(true)
+  //   const docID = Date.now().toString();
+  //   const user = JSON.parse(localStorage.getItem('user'));
+
+  //   // AI responses (like from Gemini/OpenAI) often return JSON wrapped in Markdown code blocks, so you need to clean them first before parsing.
+  //   let cleanedTripData = TripData.replace(/```json|```/g, "").trim(); //  // trim() removes any extra space or empty lines.
+  //   const tripData = JSON.parse(cleanedTripData);
+
+  //   await setDoc(doc(db, "AITrips", docID), {
+  //     userSelection: formData,
+  //     tripData: (tripData),
+  //     userEmail: user?.email,
+  //     Id: docID,
+  //   });
+  //   setLoading(false)
+  //   // navigate('view-trip/' + docID)
+
+  // }
+
+  const extractJSON = (text) => {
+    try {
+      // Match the first JSON object {...}
+      const match = text.match(/\{[\s\S]*\}/);
+      if (!match) throw new Error("No JSON found");
+      return JSON.parse(match[0]);
+    } catch (err) {
+      console.error("Failed to parse AI response:", err, text);
+      return null;
+    }
+  };
+
+  const SaveAITrip = async (TripData) => {
+    setLoading(true);
     const docID = Date.now().toString();
     const user = JSON.parse(localStorage.getItem('user'));
 
-    // AI responses (like from Gemini/OpenAI) often return JSON wrapped in Markdown code blocks, so you need to clean them first before parsing.
-    let cleanedTripData = TripData.replace(/```json|```/g, "").trim(); //  // trim() removes any extra space or empty lines.
-    const tripData = JSON.parse(cleanedTripData);
+    const tripData = extractJSON(TripData);
+    if (!tripData) {
+      toast("Failed to parse AI response. Please try again.");
+      setLoading(false);
+      return;
+    }
 
     await setDoc(doc(db, "AITrips", docID), {
       userSelection: formData,
-      tripData: (tripData),
+      tripData,
       userEmail: user?.email,
       Id: docID,
     });
-    setLoading(false)
+
+    setLoading(false);
     navigate('view-trip/' + docID)
 
-  }
+  };
 
   return (
     <div className='sm:px-10 md:px-32 lg:px-56 xl:px-10 px-5 mt-10'>
@@ -144,6 +181,19 @@ function CreateTrip() {
             }}
           />
         </div>
+        {/* <div>
+          <h2 className='text-xl my-3 font-medium'>What is destination of choice?</h2>
+          <input
+            type="text"
+            value={place} // current value
+            onChange={(e) => {
+              setPlace(e.target.value); // update state
+              handleInputChange('location', e.target.value); // call your handler
+            }}
+            placeholder="Enter destination"
+            className='w-full border border-gray-300 rounded-md p-3 focus:outline-none focus:ring-2 focus:ring-blue-500'
+          />
+        </div>  */}
 
         <div>
           <h2 className='text-xl my-3 font-medium'>How many days are you plannig your trip?</h2>
