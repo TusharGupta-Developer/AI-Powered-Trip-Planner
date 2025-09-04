@@ -118,3 +118,24 @@ http://localhost:5173/*
 https://<your-vercel-subdomain>.vercel.app/*
 https://<your-custom-domain>/*
 ```
+
+---
+
+## 🏗️💻 Architecture & Tech Stack
+> This project is structured for clarity, scalability, and ease of extension:
+>
+> ```
+> AI-Powered-Trip-Planner/
+├── public/                  # Static assets (icons, fallback images)
+├── src/
+│   ├── components/          # Reusable UI (cards, forms, autocomplete)
+│   ├── pages/               # Main routes (Home, CreateTrip, MyTrips, etc.)
+│   ├── hooks/               # Custom hooks (e.g., usePlacesAutocomplete)
+│   ├── services/            # API integrations (Gemini, Google Places, Firebase)
+│   ├── utils/               # Helpers and constants (e.g., debounce, formatters)
+│   ├── App.jsx              # Main app layout and routing
+│   └── main.jsx             # App entry point / initialization
+├── .env.example             # Sample environment variable file
+├── README.md                # Project documentation
+└── vite.config.js           # Vite configuration
+```
