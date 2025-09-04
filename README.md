@@ -106,3 +106,15 @@ VITE_FIREBASE_STORAGE_BUCKET=xxx.appspot.com
 VITE_FIREBASE_MESSAGING_SENDER_ID=xxx
 VITE_FIREBASE_APP_ID=xxx
 ```
+---
+
+## Vercel Deploy Notes
+- Add these variables in Vercel → Project → Settings → Environment Variables (Production + Preview).
+- Redeploy. Your URL stays the same.
+- In Google Cloud Console, under Credentials → API key → Application restrictions, whitelist:
+
+```
+http://localhost:5173/*
+https://<your-vercel-subdomain>.vercel.app/*
+https://<your-custom-domain>/*
+```
