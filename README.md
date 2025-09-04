@@ -19,7 +19,7 @@ Plan smarter, travel better. Generate personalized itineraries with Gemini, sear
   <a href="https://ai-powered-trip-planner.vercel.app" target="_blank"><b>🔗 Live Demo</b></a> •
   <a href="#-features"><b>Features</b></a> •
   <a href="#️-quickstart"><b>Quickstart</b></a> •
-  <a href="#️-architecture--tech-stack"><b>Architecture</b></a> •
+  <a href="#️-architecture--tech-stack"><b>Architecture & Tech Stack</b></a> •
   <a href="#-for-recruiters"><b>For Recruiters</b></a>
 </p>
 
