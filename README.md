@@ -5,13 +5,13 @@ I am currently developing **Wanderly**, an **AI-powered** and **stylish** trip p
 🔗 **Live Link:** [Wanderly](https://ai-powered-trip-planner.vercel.app/)
 
 
-# 🚀 Project Status: Completed ✅ | 🚧 Ongoing Enhancements
+## 🚀 Project Status: Completed ✅ | 🚧 Ongoing Enhancements
 
 The project is fully functional and completed, but we’re actively working on performance improvements and feature enhancements.
 
 ---
 
-## 🔧 Recent Updates
+### 🔧 Recent Updates
 - Blocked costly Place Photo API calls (billing issue) and switched to Gemini AI–generated images.  
 - Replaced invalid AI-generated image links with static images from the public folder.  
 - Created a new Google Cloud billing project, enabled Places API, and updated the API key.  
@@ -19,14 +19,14 @@ The project is fully functional and completed, but we’re actively working on p
 
 ---
 
-## 🚀 Upcoming Enhancements
+### 🚀 Upcoming Enhancements
 - Optimize the `useEffect` loop with proper dependency handling to prevent redundant API calls.  
 - Re-enable the `/create-trip`, `/create-trip/view-trip/:tripId`, and `/my-trip` routes after API optimizations.  
 - Refine UI/UX and reduce unnecessary re-renders for smoother performance.  
 
 ---
 
-💡 **Note:** All core features are functional — current work focuses on cost optimization, efficiency, and user experience
+💡 **Note:** All core features are functional — current work focuses on cost optimization, efficiency, and user experience.
 
 
 ## ✨ Features  
