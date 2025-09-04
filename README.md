@@ -147,6 +147,46 @@ AI-Powered-Trip-Planner/
 - **Places Integration:** Google Places Autocomplete for real-time place suggestions, enhancing UX.  
 - **Cost Control:** Place Photo API calls disabled in production to avoid billing surprises; fallback to curated local images demonstrates user-first thinking and responsibility.  
 - **Performance Strategy:** Guarded `useEffect`, debounced inputs, and memoization to prevent unnecessary renders and API hits.  
-- **Deployment:** Vercel ensures CI/CD, environment separation, and easy global access.  
+- **Deployment:** Vercel ensures CI/CD, environment separation, and easy global access.
+
+  ---
+
+  ## 🗺️ Roadmap  
+
+What's next on the horizon:  
+
+- 🌍 **i18n / Multilingual Support** — broaden accessibility for global users.  
+- 📶 **Offline/Low-Data Mode** — allow trip planning even with limited connectivity.  
+- ⛅ **Weather & Events Enrichment** — integrate contextual data to improve itinerary relevance.  
+- 💰 **Budget Mode** — provide cost estimates and financial breakdown per trip.  
+- 📤 **Export Functionality** — shareable trip links and PDF download options.  
+- 🌙 **Dark Mode & Accessibility Enhancements** — polish UI for usability and inclusivity.  
+
+> This roadmap highlights the project’s maturity and forward-thinking evolution strategy, signaling a product mindset and scalability vision.  
+
+---
+
+## 📣 For Recruiters  
+
+**Why this project stands out:**  
+
+- 🖥️ **Full-Stack Competence** — frontend excellence, API integrations (Google Places + Gemini AI), and deployment knowledge (Vercel).  
+- 🎯 **Product Onboarding Mindset** — features are polished, deployable, and built with cost-safety in mind (e.g., blocking costly APIs, using fallbacks).  
+- 🧩 **Clean, Maintainable Architecture** — modular structure, configuration clarity, and environment support for smooth scaling.  
+- 🚀 **Scalable Vision** — documented roadmap illustrates clear intent to evolve this into a production-grade app.  
+
+**Ready for a 5-min walk-through? Here’s what I can show you:**  
+- 🔍 **Debounced Autocomplete Flow** — real-time, efficient Google Places integration.  
+- 🔄 **useEffect Stabilization** — prevents redundant API calls and ensures cost control.  
+- 🤖 **Gemini Prompt Design** — structured AI queries that generate personalized itineraries.  
+- ⚙️ **Deployment Strategy** — Vercel environment management, CI/CD, and safe rollouts.  
+
+---
+
+📬 **Get in Touch**  
+
+- Email: **your-email@example.com**  
+- LinkedIn: [your-linkedin](https://www.linkedin.com/in/your-linkedin)  
+- Portfolio: [your-portfolio.site](https://your-portfolio.site)  
 
 
