@@ -84,3 +84,26 @@ npm run dev
 # 5) Build / Preview
 npm run build
 npm run preview
+
+---
+
+## 🔑 Environment Variables (.env)
+> Vite exposes only variables prefixed with VITE_.
+
+# Google Places (required for Autocomplete)
+VITE_GOOGLE_MAPS_API_KEY=your_google_places_key
+
+# Gemini (required for AI itinerary)
+VITE_GEMINI_API_KEY=your_gemini_key
+
+# Firebase (if enabled in your build)
+VITE_FIREBASE_API_KEY=xxx
+VITE_FIREBASE_AUTH_DOMAIN=xxx.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=xxx
+VITE_FIREBASE_STORAGE_BUCKET=xxx.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=xxx
+VITE_FIREBASE_APP_ID=xxx
+
+---
+
+
