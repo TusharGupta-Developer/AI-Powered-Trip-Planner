@@ -86,25 +86,23 @@ npm run build
 npm run preview
 ```
 
----
+----
 
-## 🔑 Environment Variables (.env)
-> Vite exposes only variables prefixed with VITE_.
+## Environment Variables
+Here’s what you need in your `.env` file (Vite only picks up variables prefixed with `VITE_`):
 
+```env
 # Google Places (required for Autocomplete)
-VITE_GOOGLE_MAPS_API_KEY=your_google_places_key
+VITE_GOOGLE_MAPS_API_KEY=YOUR_GOOGLE_PLACES_API_KEY
 
-# Gemini (required for AI itinerary)
-VITE_GEMINI_API_KEY=your_gemini_key
+# Gemini / AI Itinerary Generation
+VITE_GEMINI_API_KEY=YOUR_GEMINI_API_KEY
 
-# Firebase (if enabled in your build)
+# Firebase (optional — for future auth or storage)
 VITE_FIREBASE_API_KEY=xxx
 VITE_FIREBASE_AUTH_DOMAIN=xxx.firebaseapp.com
 VITE_FIREBASE_PROJECT_ID=xxx
 VITE_FIREBASE_STORAGE_BUCKET=xxx.appspot.com
 VITE_FIREBASE_MESSAGING_SENDER_ID=xxx
 VITE_FIREBASE_APP_ID=xxx
-
----
-
-
+```
