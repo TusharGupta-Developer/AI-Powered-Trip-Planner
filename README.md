@@ -16,7 +16,7 @@
 
 ---
 
-**Jump to:** [Features](##features) • [Quickstart](#quickstart) • [Architecture](#architecture) • [For Recruiters](#for-recruiters)
+**Jump to:** [Features](#-features) • [Quickstart](#quickstart) • [Architecture](#architecture) • [For Recruiters](#for-recruiters)
 
 ---
 
