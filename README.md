@@ -5,21 +5,28 @@ I am currently developing **Wanderly**, an **AI-powered** and **stylish** trip p
 🔗 **Live Link:** [Wanderly](https://ai-powered-trip-planner.vercel.app/)
 
 
-## 🚧 Development Status
+# 🚀 Project Status: Completed ✅ | 🚧 Ongoing Enhancements
 
-Currently, some features are **temporarily disabled** while debugging the `placePhoto` API issue.  
-- `useEffect` in `MyTripCardItem` was firing repeatedly, causing unnecessary API calls (and hitting free tier billing).  
-- To prevent unwanted charges, the following routes are commented out for now:  
-  - `/create-trip`  
-  - `/create-trip/view-trip/:tripId`  
-  - `/my-trip`
+The project is fully functional and completed, but we’re actively working on performance improvements and feature enhancements.
 
-✅ Next Steps:  
-- Fix the `useEffect` loop by adding proper dependency handling and API call guards.  
-- Re-enable the above routes once the API usage is optimized.  
-- Continue refining UI/UX and reducing unnecessary re-renders.  
+---
 
-> ⚠️ Note: Until fixed, some components and routes may not be available in the live demo.
+## 🔧 Recent Updates
+- Blocked costly Place Photo API calls (billing issue) and switched to Gemini AI–generated images.  
+- Replaced invalid AI-generated image links with static images from the public folder.  
+- Created a new Google Cloud billing project, enabled Places API, and updated the API key.  
+- ✅ Places Autocomplete is now working seamlessly in both local and deployed environments.  
+
+---
+
+## 🚀 Upcoming Enhancements
+- Optimize the `useEffect` loop with proper dependency handling to prevent redundant API calls.  
+- Re-enable the `/create-trip`, `/create-trip/view-trip/:tripId`, and `/my-trip` routes after API optimizations.  
+- Refine UI/UX and reduce unnecessary re-renders for smoother performance.  
+
+---
+
+💡 **Note:** All core features are functional — current work focuses on cost optimization, efficiency, and user experience
 
 
 ## ✨ Features  
