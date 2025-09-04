@@ -84,6 +84,7 @@ npm run dev
 # 5) Build / Preview
 npm run build
 npm run preview
+```
 
 ---
 
