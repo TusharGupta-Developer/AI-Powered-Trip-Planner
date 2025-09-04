@@ -1,87 +1,83 @@
-<!-- Badges (top-of-file) -->
 <p align="center">
   <img alt="Project Status" src="https://img.shields.io/badge/Status-Completed%20%E2%9C%85%20%7C%20Enhancements%20Ongoing-2ea44f?style=for-the-badge">
   <img alt="Built with Vite" src="https://img.shields.io/badge/Built%20with-Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white">
   <img alt="React" src="https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react&logoColor=222">
   <img alt="Tailwind" src="https://img.shields.io/badge/Tailwind%20CSS-%5E3-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white">
-  <img alt="Firebase" src="https://img.shields.io/badge/Firebase-Auth%20%7C%20DB-FFCA28?style=for-the-badge&logo=firebase&logoColor=222">
   <img alt="Google Places" src="https://img.shields.io/badge/Google%20Places-Autocomplete-4285F4?style=for-the-badge&logo=googlemaps&logoColor=white">
   <img alt="Gemini" src="https://img.shields.io/badge/Gemini-AI%20Itinerary-7E57C2?style=for-the-badge">
 </p>
 
-<h1 align="center">Wanderly – AI-Powered Trip Planner</h1>
+# Wanderly — AI-Powered Trip Planner
 
-<p align="center">
-Plan smarter, travel better. Generate personalized itineraries with Gemini, search places via Google Places Autocomplete, and manage trips with a sleek React + Tailwind UI.
-</p>
+**Plan smarter, travel better.** Generate personalized itineraries using AI (Gemini), search places with Google Places Autocomplete, and manage trips using a modern React + Tailwind UI.
 
-<p align="center">
-  <a href="https://ai-powered-trip-planner.vercel.app" target="_blank"><b>🔗 Live Demo</b></a> •
-  <a href="#features"><b>Features</b></a> •
-  <a href="#quickstart"><b>Quickstart</b></a> •
-  <a href="#architecture--tech"><b>Architecture</b></a> •
-  <a href="#for-recruiters"><b>For Recruiters</b></a>
-</p>
+**Live demo:** https://ai-powered-trip-planner.vercel.app  
+**Repo:** https://github.com/TusharGupta-Developer/AI-Powered-Trip-Planner
 
 ---
 
-## 🚀 Project Status: Completed ✅ | 🚧 Enhancements Ongoing
-
-The core app is fully functional. Current work focuses on **cost optimization**, **performance**, and **UX polish**—so the app remains stable while we ship improvements.
-
-### Recent Updates
-- Blocked costly **Google Place Photo API** calls and switched to **Gemini-assisted images** with static fallbacks from `/public`.
-- Created a new Google Cloud billing project, enabled **Places API**, and updated the API key to restore **Autocomplete**.
-- Hardened API usage: better guards and dependency handling to prevent repeated requests.
-- Production deploy on **Vercel**.
-
-### Next Enhancements
-- Re-enable any temporarily disabled routes once API usage is fully optimized.
-- Reduce re-renders, add memoization, and fine-tune `useEffect` dependencies.
-- UI/UX refinements, empty states, and loading skeletons.
-
-> Note: The live demo avoids costly image endpoints; visual content falls back to local assets when needed.
+**Jump to:** [Features](#features) • [Quickstart](#quickstart) • [Architecture](#architecture) • [For Recruiters](#for-recruiters)
 
 ---
 
-## ✨ Features
-- **AI Itinerary Generation** (Gemini): Personalized day-by-day trip outlines from simple prompts.
-- **Places Autocomplete** (Google Places): Fast, relevant location suggestions as you type.
-- **Trip Management**: Create, view, and (optionally) update saved trips.
-- **Auth-ready**: Project structured to plug in Google Authentication quickly.
-- **Responsive UI**: Built with **React**, **Tailwind**, and **shadcn/ui** components for a clean, modern feel.
-- **Routing**: Client-side navigation with React Router.
+## 🚀 Project Status: Completed ✅ | 🚧 Ongoing Enhancements
 
-> Some non-essential image endpoints are intentionally disabled to keep the demo free and predictable.
+The core product is complete and fully functional. Current work focuses on **cost optimization**, **performance**, and **UX**—not blocking core feature usage.
+
+### Recent updates
+- Blocked high-cost Place Photo API calls (billing issue) and switched to Gemini-assisted image generation + local fallbacks.
+- Replaced invalid AI-generated image links with curated images from `/public`.
+- Created a new Google Cloud billing project, enabled Places API, and updated the API key.
+- Restored **Places Autocomplete** in both local and production environments.
+- Started defensive changes to `useEffect` hooks and network guards to avoid repeated requests.
+
+### Upcoming enhancements
+- Re-enable temporarily-commented routes after API usage is guarded.
+- Optimize re-renders (memoization, `useMemo`, `React.memo`).
+- Add loading skeletons, empty states, and better error handling for missing API keys.
+
+> **Note:** Core app features (Autocomplete, itinerary generation, trip creation/viewing) are usable — enhancements aim to make them robust and production-cost-safe.
 
 ---
 
-## 🧭 Screenshots
-> Add real screenshots/GIFs from your `public/` folder (or take them from your deployed app) and update paths below.
+## 🔧 Features
 
-| Home / Landing | Create Trip | Generated Itinerary |
+- **AI Itinerary Generation (Gemini)** — generate day-by-day plans from short prompts.
+- **Places Autocomplete (Google Places)** — instant location suggestions while typing.
+- **Trip Management** — create, view, and manage trips.
+- **Responsive UI** — built with React + Tailwind for mobile-first UX.
+- **Cost-aware design** — production avoids expensive Place Photo calls; fallback images ensure visual stability.
+- **Deploy-ready** — Vite + Vercel, environment-aware builds.
+
+---
+
+## 🖼️ Screenshots
+
+> Replace these with actual screenshots from `/public/screenshots/*`
+
+| Home | Create Trip | Itinerary |
 | --- | --- | --- |
 | ![Home](public/screenshots/home.png) | ![Create](public/screenshots/create.png) | ![Itinerary](public/screenshots/itinerary.png) |
 
 ---
 
 ## 🛠️ Quickstart
-> Uses Node 18+ (recommended) and PNPM/NPM/Yarn. Example uses NPM.
+
+**Requirements**
+- Node 18+ (or latest LTS)
+- npm / pnpm / yarn
 
 ```bash
-# 1) Clone
+# Clone repository
 git clone https://github.com/TusharGupta-Developer/AI-Powered-Trip-Planner.git
 cd AI-Powered-Trip-Planner
 
-# 2) Install deps
+# Install dependencies
 npm install
 
-# 3) Configure environment (see .env example below)
-
-# 4) Run dev server
+# Development
 npm run dev
 
-# 5) Build / Preview
+# Build for production
 npm run build
 npm run preview
-
