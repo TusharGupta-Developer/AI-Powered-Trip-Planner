@@ -12,7 +12,7 @@
 <h1 align="center">Wanderly – AI-Powered Trip Planner</h1>
 
 <p align="center">
-Plan smarter, travel better — generate personalized itineraries with Gemini and search places with Google Places Autocomplete. With place photos (Google Place Photo API or AI/local fallbacks), the app helps users visualize options and cuts planning time by \*\*~50%\*\*.
+Plan smarter, travel better — generate personalized itineraries with Gemini and search places with Google Places Autocomplete. With place photos (Google Place Photo API or AI/local fallbacks), the app helps users visualize options and cuts planning time by 50%.
 </p>
 
 <p align="center">
