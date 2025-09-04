@@ -122,10 +122,10 @@ https://<your-custom-domain>/*
 ---
 
 ## 🏗️💻 Architecture & Tech Stack
-> This project is structured for clarity, scalability, and ease of extension:
->
-> ```
-> AI-Powered-Trip-Planner/
+This project is structured for clarity, scalability, and ease of extension:
+
+```bash
+AI-Powered-Trip-Planner/
 ├── public/                  # Static assets (icons, fallback images)
 ├── src/
 │   ├── components/          # Reusable UI (cards, forms, autocomplete)
@@ -138,4 +138,4 @@ https://<your-custom-domain>/*
 ├── .env.example             # Sample environment variable file
 ├── README.md                # Project documentation
 └── vite.config.js           # Vite configuration
-```
+
