@@ -12,7 +12,7 @@
 <h1 align="center">Wanderly – AI-Powered Trip Planner</h1>
 
 <p align="center">
-Plan smarter, travel better. Generate personalized itineraries with Gemini, search places via Google Places Autocomplete, and manage trips with a sleek React + Tailwind UI.
+Plan smarter, travel better. Generate personalized itineraries with Gemini, search places via Google Places Autocomplete, and manage trips with a sleek React + Tailwind UI. Place photos are served via Google Place Photo API (or AI/local fallbacks to avoid billing spikes). Cuts planning time by **~50%**.
 </p>
 
 <p align="center">
@@ -156,7 +156,7 @@ AI-Powered-Trip-Planner/
 
   ---
 
-  ## 🗺️ Roadmap  
+## 🗺️ Roadmap  
 
 What's next on the horizon:  
 
@@ -190,8 +190,10 @@ What's next on the horizon:
 
 📬 **Get in Touch**  
 
-- Email: **your-email@example.com**  
-- LinkedIn: [your-linkedin](https://www.linkedin.com/in/your-linkedin)  
-- Portfolio: [your-portfolio.site](https://your-portfolio.site)  
+- Email: [tushar.developer127@gmail.com](mailto:tushar.developer127@gmail.com)  
+- LinkedIn: [linkedin.com/in/tushargupta-dev](https://www.linkedin.com/in/tushargupta-dev/)  
+- Portfolio: [tushar-responsive-porftfolio-web-ap.vercel.app](https://tushar-responsive-porftfolio-web-ap.vercel.app/)  
+
+---
 
 
