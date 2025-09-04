@@ -57,11 +57,16 @@ The core app is fully functional. Current work focuses on **cost optimization**,
 ---
 
 ## 🧭 Screenshots
-> Add real screenshots/GIFs from your `public/` folder (or take them from your deployed app) and update paths below.
 
-| Home / Landing | Create Trip | Generated Itinerary |
+Below are key screens from the **AI-Powered Trip Planner** (captured from the deployed app):
+
+| 🏠 Home / Landing | 📝 Create Trip | 📂 View Trip |
 | --- | --- | --- |
-| ![Home](public/screenshots/home.png) | ![Create](public/screenshots/create.png) | ![Itinerary](public/screenshots/itinerary.png) |
+| <img width="400" alt="Home Page" src="https://github.com/user-attachments/assets/8c36c5b3-0c72-41dc-bea5-8b9cfcbba3b9" /> | <img width="400" alt="Create Trip" src="https://github.com/user-attachments/assets/ce209589-741f-4a6d-ac1f-263595719347" /> | <img width="400" alt="View Trip" src="https://github.com/user-attachments/assets/ef8633a0-952f-4bfa-bbd0-6c23ff6bddc5" /> |
+
+| 🔑 Sign In | 🧳 Generated Itinerary |
+| --- | --- |
+| <img width="400" alt="Sign In" src="https://github.com/user-attachments/assets/6ea66fc3-034f-4c5b-ac1a-9c1965f7eb29" /> | <img width="400" alt="Itinerary" src="https://github.com/user-attachments/assets/e1dcc348-e9ff-4f31-8502-7264d2e437dd" /> |
 
 ---
 
