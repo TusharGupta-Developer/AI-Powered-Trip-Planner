@@ -138,4 +138,14 @@ AI-Powered-Trip-Planner/
 ├── .env.example             # Sample environment variable file
 ├── README.md                # Project documentation
 └── vite.config.js           # Vite configuration
+```
+
+Tech Highlights & Design Rationale
+
+- Frontend: React + Vite + Tailwind CSS — fast builds, hot reloading, and responsive design.
+- AI Layer: Gemini handles smart itinerary generation via prompt-driven requests for personalized results.
+- Places Integration: Google Places Autocomplete for real-time place suggestions, enhancing UX.
+- Cost Control: Place Photo API calls disabled in production to avoid billing surprises; fallback to curated local images demonstrates user-first thinking and responsibility.
+- Performance Strategy: Guarded useEffect, debounced inputs, and memoization to prevent unnecessary renders and API hits.
+- Deployment: Vercel ensures CI/CD, environment separation, and easy global access.
 
